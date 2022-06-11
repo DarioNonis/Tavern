@@ -1,0 +1,146 @@
+[2022-05-31 13:15:40] KnexTimeoutError: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+    at Client_SQLite3.acquireConnection (/home/runner/Tavern/node_modules/knex/lib/client.js:305:26)
+    at async Runner.ensureConnection (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:259:28)
+    at async Runner.run (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:30:19)
+    at async RedBeanNode.normalizeRaw (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:570:22)
+    at async RedBeanNode.getRow (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:556:22)
+    at async Function.calcUptime (/home/runner/Tavern/server/model/monitor.js:587:22)
+    at async Function.sendUptime (/home/runner/Tavern/server/model/monitor.js:647:24)
+    at async Function.sendStats (/home/runner/Tavern/server/model/monitor.js:535:13) {
+  sql: '\n' +
+    '            SELECT\n' +
+    '               -- SUM all duration, also trim off the beat out of time window\n' +
+    '                SUM(\n' +
+    '                    CASE\n' +
+    '                        WHEN (JULIANDAY(`time`) - JULIANDAY(?)) * 86400 < duration\n' +
+    '                        THEN (JULIANDAY(`time`) - JULIANDAY(?)) * 86400\n' +
+    '                        ELSE duration\n' +
+    '                    END\n' +
+    '                ) AS total_duration,\n' +
+    '\n' +
+    '               -- SUM all uptime duration, also trim off the beat out of time window\n' +
+    '                SUM(\n' +
+    '                    CASE\n' +
+    '                        WHEN (status = 1)\n' +
+    '                        THEN\n' +
+    '                            CASE\n' +
+    '                                WHEN (JULIANDAY(`time`) - JULIANDAY(?)) * 86400 < duration\n' +
+    '                                    THEN (JULIANDAY(`time`) - JULIANDAY(?)) * 86400\n' +
+    '                                ELSE duration\n' +
+    '                            END\n' +
+    '                        END\n' +
+    '                ) AS uptime_duration\n' +
+    '            FROM heartbeat\n' +
+    '            WHERE time > ?\n' +
+    '            AND monitor_id = ?\n' +
+    '        ',
+  bindings: [
+    '2022-05-30 13:14:40',
+    '2022-05-30 13:14:40',
+    '2022-05-30 13:14:40',
+    '2022-05-30 13:14:40',
+    '2022-05-30 13:14:40',
+    12
+  ]
+}
+[2022-05-31 13:16:18] KnexTimeoutError: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+    at Client_SQLite3.acquireConnection (/home/runner/Tavern/node_modules/knex/lib/client.js:305:26)
+    at runNextTicks (internal/process/task_queues.js:60:5)
+    at listOnTimeout (internal/timers.js:526:9)
+    at processTimers (internal/timers.js:500:7)
+    at async Runner.ensureConnection (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:259:28)
+    at async Runner.run (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:30:19)
+    at async RedBeanNode.normalizeRaw (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:570:22)
+    at async RedBeanNode.getRow (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:556:22)
+    at async RedBeanNode.getCell (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:591:19)
+    at async Function.sendAvgPing (/home/runner/Tavern/server/model/monitor.js:550:32) {
+  sql: '\n' +
+    '            SELECT AVG(ping)\n' +
+    '            FROM heartbeat\n' +
+    "            WHERE time > DATETIME('now', ? || ' hours')\n" +
+    '            AND ping IS NOT NULL\n' +
+    '            AND monitor_id = ?  limit ?',
+  bindings: [ -24, 8, 1 ]
+}
+[2022-05-31 13:16:18] KnexTimeoutError: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+    at Client_SQLite3.acquireConnection (/home/runner/Tavern/node_modules/knex/lib/client.js:305:26)
+    at async Runner.ensureConnection (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:259:28)
+    at async Runner.run (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:30:19)
+    at async RedBeanNode.storeCore (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:166:26)
+    at async RedBeanNode.store (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:126:20)
+    at async beat (/home/runner/Tavern/server/model/monitor.js:417:13)
+    at async Timeout.safeBeat [as _onTimeout] (/home/runner/Tavern/server/model/monitor.js:443:17) {
+  sql: undefined,
+  bindings: undefined
+}
+[2022-05-31 13:16:37] KnexTimeoutError: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+    at Client_SQLite3.acquireConnection (/home/runner/Tavern/node_modules/knex/lib/client.js:305:26)
+    at async Runner.ensureConnection (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:259:28)
+    at async Runner.run (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:30:19)
+    at async RedBeanNode.normalizeRaw (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:570:22)
+    at async RedBeanNode.getRow (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:556:22)
+    at async RedBeanNode.getCell (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:591:19)
+    at async Function.sendAvgPing (/home/runner/Tavern/server/model/monitor.js:550:32)
+    at async Function.sendStats (/home/runner/Tavern/server/model/monitor.js:534:13) {
+  sql: '\n' +
+    '            SELECT AVG(ping)\n' +
+    '            FROM heartbeat\n' +
+    "            WHERE time > DATETIME('now', ? || ' hours')\n" +
+    '            AND ping IS NOT NULL\n' +
+    '            AND monitor_id = ?  limit ?',
+  bindings: [ -24, 9, 1 ]
+}
+[2022-05-31 13:16:37] KnexTimeoutError: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+    at Client_SQLite3.acquireConnection (/home/runner/Tavern/node_modules/knex/lib/client.js:305:26)
+    at async Runner.ensureConnection (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:259:28)
+    at async Runner.run (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:30:19)
+    at async RedBeanNode.storeCore (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:166:26)
+    at async RedBeanNode.store (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:126:20)
+    at async beat (/home/runner/Tavern/server/model/monitor.js:417:13)
+    at async Timeout.safeBeat [as _onTimeout] (/home/runner/Tavern/server/model/monitor.js:443:17) {
+  sql: undefined,
+  bindings: undefined
+}
+[2022-05-31 13:16:45] KnexTimeoutError: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+    at Client_SQLite3.acquireConnection (/home/runner/Tavern/node_modules/knex/lib/client.js:305:26)
+    at runNextTicks (internal/process/task_queues.js:60:5)
+    at listOnTimeout (internal/timers.js:526:9)
+    at processTimers (internal/timers.js:500:7)
+    at async Runner.ensureConnection (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:259:28)
+    at async Runner.run (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:30:19)
+    at async RedBeanNode.normalizeRaw (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:570:22)
+    at async RedBeanNode.getRow (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:556:22)
+    at async RedBeanNode.getCell (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:591:19)
+    at async Function.sendAvgPing (/home/runner/Tavern/server/model/monitor.js:550:32) {
+  sql: '\n' +
+    '            SELECT AVG(ping)\n' +
+    '            FROM heartbeat\n' +
+    "            WHERE time > DATETIME('now', ? || ' hours')\n" +
+    '            AND ping IS NOT NULL\n' +
+    '            AND monitor_id = ?  limit ?',
+  bindings: [ -24, 7, 1 ]
+}
+[2022-05-31 13:16:45] KnexTimeoutError: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+    at Client_SQLite3.acquireConnection (/home/runner/Tavern/node_modules/knex/lib/client.js:305:26)
+    at async Runner.ensureConnection (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:259:28)
+    at async Runner.run (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:30:19)
+    at async RedBeanNode.storeCore (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:166:26)
+    at async RedBeanNode.store (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:126:20)
+    at async beat (/home/runner/Tavern/server/model/monitor.js:417:13)
+    at async Timeout.safeBeat [as _onTimeout] (/home/runner/Tavern/server/model/monitor.js:443:17) {
+  sql: undefined,
+  bindings: undefined
+}
+[2022-06-10 21:04:25] KnexTimeoutError: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+    at Client_SQLite3.acquireConnection (/home/runner/Tavern/node_modules/knex/lib/client.js:305:26)
+    at runNextTicks (internal/process/task_queues.js:60:5)
+    at processTimers (internal/timers.js:497:9)
+    at async Runner.ensureConnection (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:259:28)
+    at async Runner.run (/home/runner/Tavern/node_modules/knex/lib/execution/runner.js:30:19)
+    at async RedBeanNode.storeCore (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:166:26)
+    at async RedBeanNode.store (/home/runner/Tavern/node_modules/redbean-node/dist/redbean-node.js:126:20)
+    at async beat (/home/runner/Tavern/server/model/monitor.js:417:13)
+    at async Timeout.safeBeat [as _onTimeout] (/home/runner/Tavern/server/model/monitor.js:443:17) {
+  sql: undefined,
+  bindings: undefined
+}
