@@ -1,7 +1,7 @@
 # Tavern
 
-<a target="_blank" href="https://github.com/louislam/uptime-kuma"><img src="https://img.shields.io/github/stars/louislam/uptime-kuma" /></a> <a target="_blank" href="https://hub.docker.com/r/louislam/uptime-kuma"><img src="https://img.shields.io/docker/pulls/louislam/uptime-kuma" /></a> <a target="_blank" href="https://hub.docker.com/r/louislam/uptime-kuma"><img src="https://img.shields.io/docker/v/louislam/uptime-kuma/latest?label=docker%20image%20ver." /></a> <a target="_blank" href="https://github.com/louislam/uptime-kuma"><img src="https://img.shields.io/github/last-commit/louislam/uptime-kuma" /></a>  <a target="_blank" href="https://opencollective.com/uptime-kuma"><img src="https://opencollective.com/uptime-kuma/total/badge.svg?label=Open%20Collective%20Backers&color=brightgreen" /></a>
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/louislam?label=GitHub%20Sponsors)](https://github.com/sponsors/louislam)
+<a target="_blank" href="https://github.com/DarioNonis/Tavern"><img src="https://img.shields.io/github/stars/DarioNonis/Tavern" /></a> <a target="_blank" href="https://hub.docker.com/r/DarioNonis/Tavern"><img src="https://img.shields.io/docker/pulls/DarioNonis/Tavern" /></a> <a target="_blank" href="https://hub.docker.com/r/DarioNonis/Tavern"><img src="https://img.shields.io/docker/v/DarioNonis/Tavern/latest?label=docker%20image%20ver." /></a> <a target="_blank" href="https://github.com/louislam/uptime-kuma"><img src="https://img.shields.io/github/last-commit/louislam/uptime-kuma" /></a>  <a target="_blank" href="https://opencollective.com/Tavern"><img src="https://opencollective.com/Tavern/total/badge.svg?label=Open%20Collective%20Backers&color=brightgreen" /></a>
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/DarioNonis?label=GitHub%20Sponsors)](https://github.com/sponsors/DarioNonis)
 
 <div align="center" width="100%">
     <img src="./public/icon.svg" width="128" alt="" />
@@ -11,7 +11,7 @@ It is a self-hosted monitoring tool.
 
 <img src="https://uptime.kuma.pet/img/dark.jpg" width="700" alt="" />
 
-## 🥔 Live Demo
+## Live Demo
 
 Try it!
 
@@ -21,7 +21,7 @@ It is a temporary live demo, all data will be deleted after 10 minutes. The serv
 
 VPS is sponsored by Uptime Kuma sponsors on [Open Collective](https://opencollective.com/uptime-kuma)! Thank you so much!
 
-## ⭐ Features
+## Features
 
 * Monitoring uptime for HTTP(s) / TCP / HTTP(s) Keyword / Ping / DNS Record / Push / Steam Game Server.
 * Fancy, Reactive, Fast UI/UX.
@@ -32,9 +32,9 @@ VPS is sponsored by Uptime Kuma sponsors on [Open Collective](https://opencollec
 * Ping Chart
 * Certificate Info
 
-## 🔧 How to Install
+## How to Install
 
-### 🐳 Docker
+### Docker
 
 ```bash
 docker volume create uptime-kuma
@@ -45,7 +45,7 @@ docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name upti
 
 Browse to http://localhost:3001 after starting.
 
-### 💪🏻 Non-Docker
+### Non-Docker
 
 Required Tools: Node.js >= 14, git and pm2.
 
@@ -53,8 +53,8 @@ Required Tools: Node.js >= 14, git and pm2.
 # Update your npm to the latest version
 npm install npm -g
 
-git clone https://github.com/louislam/uptime-kuma.git
-cd uptime-kuma
+git clone https://github.com/DarioNonis/Tavern.git
+cd Tavern
 npm run setup
 
 # Option 1. Try it
@@ -62,7 +62,7 @@ node server/server.js
 
 # (Recommended) Option 2. Run in background using PM2
 # Install PM2 if you don't have it: npm install pm2 -g
-pm2 start server/server.js --name uptime-kuma
+pm2 start server/server.js --name Tavern
 ```
 
 Browse to http://localhost:3001 after starting.
@@ -71,31 +71,31 @@ Browse to http://localhost:3001 after starting.
 
 If you need more options or need to browse via a reverse proxy, please read:
 
-https://github.com/louislam/uptime-kuma/wiki/%F0%9F%94%A7-How-to-Install
+https://github.com/DarioNonis/Tavern/wiki/%F0%9F%94%A7-How-to-Install
 
-## 🆙 How to Update
+## How to Update
 
 Please read:
 
-https://github.com/louislam/uptime-kuma/wiki/%F0%9F%86%99-How-to-Update
+https://github.com/DarioNonis/Tavern/wiki/%F0%9F%86%99-How-to-Update
 
-## 🆕 What's Next?
+## What's Next?
 
 I will mark requests/issues to the next milestone.
 
-https://github.com/louislam/uptime-kuma/milestones
+https://github.com/DarioNonis/Tavern/milestones
 
 Project Plan:
 
-https://github.com/louislam/uptime-kuma/projects/1
+https://github.com/DarioNonis/Tavern/projects/1
 
-## ❤️ Sponsors
+## Sponsors
 
 Thank you so much! (GitHub Sponsors will be updated manually. OpenCollective sponsors will be updated automatically, the list will be cached by GitHub though. It may need some time to be updated)
 
 <img src="https://uptime.kuma.pet/sponsors?v=3" alt />
 
-## 🖼 More Screenshots
+## More Screenshots
 
 Light Mode:
 
@@ -124,24 +124,18 @@ Telegram Notification Sample:
 
 If you love this project, please consider giving me a ⭐.
 
-## 🗣️ Discussion
+## Discussion
 
 ### Issues Page
 
 You can discuss or ask for help in [issues](https://github.com/louislam/uptime-kuma/issues).
 
-### Subreddit
-
-My Reddit account: louislamlam
-You can mention me if you ask a question on Reddit.
-https://www.reddit.com/r/UptimeKuma/
-
 ## Contribute
 
 If you want to report a bug or request a new feature. Free feel to open a [new issue](https://github.com/louislam/uptime-kuma/issues).
 
-If you want to translate Uptime Kuma into your language, please read: https://github.com/louislam/uptime-kuma/tree/master/src/languages
+If you want to translate Uptime Kuma into your language, please read: https://github.com/DarioNonis/Tavern/tree/master/src/languages
 
-If you want to modify Uptime Kuma, this guideline may be useful for you: https://github.com/louislam/uptime-kuma/blob/master/CONTRIBUTING.md
+If you want to modify Uptime Kuma, this guideline may be useful for you: https://github.com/DarioNonis/Tavern/blob/master/CONTRIBUTING.md
 
 English proofreading is needed too because my grammar is not that great, sadly. Feel free to correct my grammar in this README, source code, or wiki.
